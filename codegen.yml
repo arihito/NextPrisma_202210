@@ -4,7 +4,7 @@ generates:
       - 'src/graphql/typeDefs/**/*.graphql'
     plugins:
       - schema-ast
-  src/generated/resolvers- ypes.ts:
+  src/generated/resolvers-types.ts:
     schema:
       - 'src/graphql/typeDefs/**/*.graphql'
     plugins:
@@ -16,5 +16,17 @@ generates:
       mappers:
         User: '@prisma/client#User'
         Todo: '@prisma/client#Todo'
+      scalars:
+        DateTime: string
+  src/generated/request.ts:
+    schema:
+      - 'src/graphql/typeDefs/**/*.graphql'
+    documents:
+      - 'src/graphql/typeDefs/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
       scalars:
         DateTime: string
